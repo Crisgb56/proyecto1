@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
+personaData: any = {nombre:"Maria", apellido:"De la O", edad:27}
 
   constructor() { }
+  eventoBotonAngular(){
+    console.log('Ejecutamos el evento del boton para '+this.personaData.nombre+' '+this.personaData.apellido);
+  }
 
   ngOnInit(): void {
+
   }
 
 }

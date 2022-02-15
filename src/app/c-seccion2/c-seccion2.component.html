@@ -1,0 +1,27 @@
+<p>Sección 2: {{ ciudad}} {{ poblacion }}</p>
+<form [formGroup]="formSec2" class="form-inline">
+<div class="row mx-auto">
+    <div class="col-6">
+        <label class="label-form" for="usuario">Nombre Usuario</label>
+        <input type="text" id="usuario" placeholder="Nombre Usuario" class="form-control" formControlName="usuario" required>
+        <div class="input-group-append" *ngIf="f['usuario'].errors">
+            <p *ngIf="f['usuario'].errors['required']" class="error-validate red"> *Obligatorio</p>
+    </div>
+    </div>
+    <div class="col-6">
+        <label class="label-form" for="comentario">Comentario</label>
+        <input type="text" id="comentario" placeholder="Comentario" class="form-control" formControlName="comentario">
+        <div class="input-group-append" *ngIf="f['comentario'].errors">
+            <p *ngIf="f['comentario'].errors['required']" class="error-validate red"> *Obligatorio</p>
+            <p *ngIf="f['comentario'].errors['minlength']" class="error-validate red"> *Debe contener mínimo 10 caracteres</p>
+        </div>
+        
+    </div>
+    <br>
+    <div class=" col-2">
+        <button *ngIf="f['usuario'].errors || f['comentario'].errors" type="button" class="btn btn-primary" disabled>Enviar</button>
+        <button *ngIf="!f['usuario'].errors && !f['comentario'].errors" type="button" class="btn btn-primary" (click)="mostrarComentario();">Enviar</button>
+    </div>
+ 
+</div>
+</form>
